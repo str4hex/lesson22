@@ -2,7 +2,7 @@ class Unit:
 
     # ...
     def __init__(self):
-
+        pass
 
     def move(self, direction):
         speed = self._get_speed()
