@@ -17,17 +17,23 @@ class GetUsersList:
     def __init__(self, csv):
         self.csv = csv
 
-    def _read(self):
+    def get_list(self):
+        data = self._read(self.csv)
+        data_sort = self._sort(data)
+        return self._filter(data_sort)
+
+    def _read(self, csv):
         return [x.split(';') for x in csv.split('\n')]
 
-    def _sort(self):
-        return sorted(self._read(), key=lambda x: x[1])
+    def _sort(self, sort_csv):
+        return sorted(sort_csv, key=lambda x: x[1])
 
-    def _filter(self):
-        return [x for x in self._sort() if int(x[1]) > 10]
+    def _filter(self, data_filtes):
+        return [x for x in data_filtes if int(x[1]) > 10]
 
     def __repr__(self):
-        return str(self._filter())
+        return str(self.get_list())
+
 
 if __name__ == '__main__':
     user_list = GetUsersList(csv)
