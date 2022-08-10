@@ -26,7 +26,9 @@ class GetUsersList:
     def _filter(self):
         return [x for x in self._sort() if int(x[1]) > 10]
 
+    def __repr__(self):
+        return str(self._filter())
 
 if __name__ == '__main__':
     user_list = GetUsersList(csv)
-    print(user_list._filter())
+    print(user_list)
