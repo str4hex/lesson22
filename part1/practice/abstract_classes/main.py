@@ -76,6 +76,12 @@ class Boat(Transport):
     def stop(self):
         print('Сбросили скорость до 0 узлов!')
 
+    def all_engine(self):
+        self.start_engine()
+        self.stop_engine()
+        self.stop()
+        self.move()
+
 
 class Car(Transport):
 
@@ -90,6 +96,12 @@ class Car(Transport):
 
     def stop(self):
         print('Сбросили скорость до 0 км!')
+
+    def all_engine(self):
+        self.start_engine()
+        self.stop_engine()
+        self.stop()
+        self.move()
 
 
 class Electroscooter(Transport):
@@ -106,14 +118,17 @@ class Electroscooter(Transport):
     def stop(self):
         print('Сбросили скорость до 0 км!')
 
+    def all_engine(self):
+        self.start_engine()
+        self.stop_engine()
+        self.stop()
+        self.move()
+
 
 class Person:
 
     def use_transport(self, transport):
-        transport.start_engine()
-        transport.stop_engine()
-        transport.stop()
-        transport.move()
+        transport.all_engine()
 
 
 # Отрезок кода для самопроверки.
